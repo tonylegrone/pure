@@ -31,4 +31,4 @@ WORKDIR /tmp/.pure/
 COPY --chown=nemo:nemo . /tmp/.pure/
 
 ENTRYPOINT ["fish", "-c"]
-CMD ["fishtape tests/*.test.fish"]
+CMD ["fish"]

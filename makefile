@@ -4,6 +4,7 @@
 SHELL := /bin/bash
 INTERACTIVE=true
 
+
 .PHONY: default
 default: usage
 usage:
@@ -21,20 +22,17 @@ build-pure-on:
 		./
 
 .PHONY: test-pure-on
-test-pure-on:
-	docker run \
-		--name test-pure-on-${FISH_VERSION} \
-		--rm \
-		--interactive \
-		--tty \
-		pure-on-fish-${FISH_VERSION}
+test-pure-on: export CMD=fishtape tests/*.test.fish  # can be overriden by user
+test-pure-on: 
+	@$(MAKE) dev-pure-on  # ${CMD} is passed along
 	
 .PHONY: dev-pure-on
-dev-pure-on:
+dev-pure-on: CMD?=fish
+dev-pure-on: 
 	docker run \
 		--name run-pure-on-${FISH_VERSION} \
 		--rm \
 		--interactive \
 		--tty \
 		--volume=$$(pwd):/tmp/.pure/ \
-		pure-on-fish-${FISH_VERSION}
+		pure-on-fish-${FISH_VERSION} "${CMD}"
