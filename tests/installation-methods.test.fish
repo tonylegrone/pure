@@ -29,7 +29,7 @@ if test $USER = 'nemo'
         and install_pure >/dev/null
         source $PURE_INSTALL_DIR/conf.d/*
 
-        fish -c 'fish_prompt | grep -c "❯"' 
+        fish -c 'fish_prompt | grep -c "❯"'
     ) = 1
 end
 
@@ -39,7 +39,7 @@ if test $USER = 'nemo'
         and source /tmp/installer.fish
         and install_pure >/dev/null
 
-        fish -c 'fish_prompt | grep -c "❯"' 
+        fish -c 'fish_prompt | grep -c "❯"'
     ) = 1
 end
 
@@ -47,7 +47,7 @@ if test $USER = 'nemo'
     @test "installation methods: with fisher" (
         fisher add rafaelrinaldi/pure >/dev/null
 
-        fish -c 'fish_prompt | grep -c "❯"' 
+        fish -c 'fish_prompt | grep -c "❯"'
     ) = 1
 end
 
@@ -63,7 +63,7 @@ if test $USER = 'nemo'
                 ln -sf $OMF_PURE_PATH/fish_*.fish $HOME/.config/fish/functions/; \
                 ln -sf $OMF_PURE_PATH/functions/*.fish $HOME/.config/fish/functions/; \
                 ln -sf $OMF_PURE_PATH/conf.d/* $HOME/.config/fish/conf.d/" > /dev/null
-        fish -c "fish_prompt" | grep -c '❯' 
+        fish -c "fish_prompt" | grep -c '❯'
     ) = 1
 end
 
@@ -77,6 +77,6 @@ end
 #         fundle install >/dev/null
 #         cp $HOME/.config/fish/fundle/rafaelrinaldi/pure/{,functions/}fish_prompt.fish
 
-#         fish -c 'fish_prompt | grep -c "❯"' 
+#         fish -c 'fish_prompt | grep -c "❯"'
 #     ) = 1
 # end
