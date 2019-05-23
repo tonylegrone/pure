@@ -37,7 +37,7 @@ if test $USER = 'nemo'
     @test "installation methods: manually (with published installer)" (
         curl git.io/pure-fish --output /tmp/installer.fish --location --silent
         and source /tmp/installer.fish
-        and install_pure
+        and install_pure >/dev/null
 
         fish -c 'fish_prompt | grep -c "❯"' 
     ) = 1
